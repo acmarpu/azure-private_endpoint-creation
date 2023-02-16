@@ -1,0 +1,29 @@
+trigger:
+  branches:
+    include:
+    - master
+  
+variables:
+  - template: Variables.pe.yaml
+
+stages:
+- stage: Connect_Via_Endpoint
+  displayName: Connect_Via_Endpoint
+  jobs:
+  - job: ConnectViaEndpoint
+    steps:
+    - task: AzureCLI@2
+      displayName: Azure CLI
+      inputs:
+        azureSubscription: $(subscription)
+        scriptType: bash
+        scriptLocation: inlineScript
+        inlineScript: |
+          - task: AzureCLI@2
+            inputs:
+              azureSubscription: $(subscription)
+              scriptType: 'bash'
+              scriptLocation: 'inlineScript'
+              inlineScript: |
+                az network private-endpoint create --resource-group "$(resourceGroup)" --name "collibraPleCreation"  \
+                	          --subnet "$(subnetId)" --connection-name $(connection1) --l $(location)

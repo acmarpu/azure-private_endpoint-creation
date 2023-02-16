@@ -1,0 +1,26 @@
+# Define the environment variables
+variables:
+  - name: resourceGroup
+    resourceGroup: "my-rg"
+  - name: privateEndpointName
+    privateEndpointName: "my-pe"
+  - name: subnetId
+    subnetId: 'my-pe'
+  - name: groupId
+    groupId: "null"
+  - name: approvalRequired
+    approvalRequired: true
+  - name: approvalMessage
+    approvalMessage: "Approved"
+  - name: dnsZoneName
+    dnsZoneName: "my-dns"
+  - name: dnsZoneGroupName
+    dnsZoneGroupName: "db"
+  - name: dnsRgName
+    dnsRgName: "null"
+  - name: privateConnectionAddressId
+    privateConnectionAddressId: 'my-pvt-connection'
+  - name: subscription
+    subscription: "my-sub"
+  - name:
+    location: eastus2
